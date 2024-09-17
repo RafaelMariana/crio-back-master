@@ -37,4 +37,9 @@ public class Evento {
     @JoinColumn(name="endereco_id")
     private Endereco endereco;
 
+    public static record IntervaloDataDTO(
+            LocalDateTime inicio,
+            LocalDateTime fim
+    ) {
+    }
 }

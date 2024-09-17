@@ -45,4 +45,8 @@ public class EnderecoService {
         Endereco endereco = getEnderecoById(id);
         enderecoRepository.delete(endereco);
     }
+
+
+
+
 }

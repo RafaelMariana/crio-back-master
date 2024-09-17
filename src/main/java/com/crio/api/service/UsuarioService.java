@@ -8,12 +8,14 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
 public class UsuarioService {
     @Autowired
     private UsuarioRepository usuarioRepository;
+
 
     public Usuario createUsuario(UsuarioRequestDTO data){
         //cria um usuario vazio
@@ -50,5 +52,20 @@ public class UsuarioService {
     public void deleteUser(UUID id){
         Usuario usuario = getUserById(id);
         usuarioRepository.delete(usuario);
+    }
+
+
+
+    public Optional<Usuario> findByEmail(String email) {
+        Optional<Usuario> usuario = usuarioRepository.findByEmail(email);
+        return usuario;
+    }
+    public Optional<Usuario> findByTipo(int tipo) {
+        Optional<Usuario> usuario = usuarioRepository.findByTipo(tipo);
+        return usuario;
+    }
+
+    public Usuario findBycreatedAtBetween() {
+        Optional<Usuario> usuario = usuarioRepository.findByCreatedAtBetween(LocalDateTime);
     }
 }
