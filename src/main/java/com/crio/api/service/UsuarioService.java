@@ -1,6 +1,7 @@
 package com.crio.api.service;
 
 import com.crio.api.domain.usuario.Usuario;
+import com.crio.api.domain.usuario.UsuarioCreatedDTO;
 import com.crio.api.domain.usuario.UsuarioRequestDTO;
 import com.crio.api.repositorie.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,7 +66,8 @@ public class UsuarioService {
         return usuario;
     }
 
-    public Usuario findBycreatedAtBetween() {
-        Optional<Usuario> usuario = usuarioRepository.findByCreatedAtBetween(LocalDateTime);
+    public Usuario findBycreatedAtBetween(UsuarioCreatedDTO usuarioCreatedDTO) {
+        Optional<Usuario> usuario = usuarioRepository.findByCreatedAtBetween(usuarioCreatedDTO.createdAt(),usuarioCreatedDTO.end());
+        return usuario;
     }
 }

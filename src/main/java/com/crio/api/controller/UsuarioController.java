@@ -88,7 +88,7 @@ public class UsuarioController {
            @RequestParam("createdAt")LocalDateTime createdAt,
            @RequestParam("end") LocalDateTime end) {
         UsuarioCreatedDTO  usuarioCreatedDTO = new UsuarioCreatedDTO(createdAt,end);
-       Usuario newUsuario =  this.usuarioService.findBycreatedAtBetween();
+       Usuario newUsuario =  this.usuarioService.findBycreatedAtBetween(usuarioCreatedDTO);
         return ResponseEntity.ok(newUsuario);
 
 
